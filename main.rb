@@ -8,5 +8,5 @@ get '/:text' do
   image = EmojiImage.new params[:text]
   p image.path
   content_type :png
-  send_file 'dest.png' #image.path
+  send_file 'public/dest.png' #image.path
 end

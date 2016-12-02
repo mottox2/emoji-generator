@@ -12,7 +12,6 @@ class EmojiImage
     d = Magick::Draw.new
 
     padding = 30
-    text = 'text'
     fontsize =  (512 - padding * 2) / 2
 
     text.split('').to_a.each_slice((text.size / 2).to_i).with_index do |row, index|
