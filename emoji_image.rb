@@ -26,9 +26,9 @@ class EmojiImage
       end
     end
 
-    f.write("public/dest.png")
 
-    @path = 'public/dest.png'
+    @path = "public/dest-#{SecureRandom.base64}.png"
+    f.write(@path)
   end
 end
 
