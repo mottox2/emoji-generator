@@ -6,5 +6,7 @@ require 'pry'
 
 get '/:text' do
   image = EmojiImage.new params[:text]
-  json ({ path: request.base_url + image.path })
+  p image.path
+  content_type :png
+  send_file 'dest.png' #image.path
 end

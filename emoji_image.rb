@@ -29,7 +29,7 @@ class EmojiImage
 
     f.write("public/dest.png")
 
-    @path = '/public/dest.png'
+    @path = 'dest.png'
   end
 end
 
