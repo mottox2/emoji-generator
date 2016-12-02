@@ -8,12 +8,19 @@ end
 d = Magick::Draw.new
 
 padding = 30
-text = 'テキスト'
-fontsize = (512 - padding * 2) / text.size
-d.annotate(f, 0, 0, padding, padding, 'テキスト') do
-  self.pointsize = fontsize
-  self.font = 'NotoSansCJKjp-Medium.otf'
-  self.gravity = Magick::NorthWestGravity
+text = 'text'
+fontsize =  (512 - padding * 2) / 2
+
+text.split('').to_a.each_slice((text.size / 2).to_i).with_index do |row, index|
+  p index
+  row_text = row.join
+
+  d.annotate(f, 0, 0, padding, padding + index * fontsize, row_text) do
+    self.pointsize = fontsize
+    self.fill = 'orange'
+    self.font = 'NotoSansCJKjp-Medium.otf'
+    self.gravity = Magick::NorthWestGravity
+  end
 end
 
 f.write('dest.png')
