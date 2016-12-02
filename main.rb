@@ -1,4 +1,4 @@
-require_relative './generator'
+require_relative './emoji_image'
 require 'sinatra'
 require 'sinatra/reloader'
 
