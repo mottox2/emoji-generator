@@ -1,3 +1,5 @@
+# This code is based on https://github.com/oti/slack-reaction-decomoji/blob/master/import.rb
+
 require 'highline/import'
 require 'mechanize'
 require 'pry'
@@ -59,7 +61,7 @@ class Importer
     # skip if already exists
     p 'Already exists' and return if page.body.include?(":#{name}:")
 
-    puts "importing #{basename}..."
+    puts "importing #{name}..."
 
     form = page.form_with(action: '/customize/emoji')
     form['name'] = name
