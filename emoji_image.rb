@@ -33,6 +33,10 @@ class EmojiImage
 end
 
 text = ARGV[0]
-exit unless text
-e = EmojiImage.new(text)
-`open #{e.path}`
+unless text
+  puts 'Require args: image path'
+  exit
+end
+
+image = EmojiImage.new(text)
+`open #{image.path}`

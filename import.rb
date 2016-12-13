@@ -69,6 +69,12 @@ class Importer
 end
 
 path = ARGV[0]
+
+unless path
+  puts 'Require args: image path'
+  exit
+end
+
 importer = Importer.new(path)
 importer.import_decomojis
 puts 'Done!'
