@@ -1,20 +1,21 @@
 require 'RMagick'
+require 'pry'
 include Magick
 
 class EmojiImage
   attr_reader :path
 
   def initialize(text)
-    f = Magick::Image.new(512, 512) do
-      self.background_color = 'white'
+    f = Magick::Image.new(64, 64) do
+      self.background_color= "Transparent"
     end
 
     d = Magick::Draw.new
 
-    padding = 30
-    fontsize =  (512 - padding * 2) / 2
+    padding = 4
+    fontsize =  (64 - padding * 2) / 2
 
-    text.split('').to_a.each_slice((text.size / 2).to_i).with_index do |row, index|
+    text.split('').to_a.each_slice((text.size / 2).round).with_index do |row, index|
       p index
       row_text = row.join
 
@@ -22,14 +23,16 @@ class EmojiImage
         self.pointsize = fontsize
         self.fill = 'orange'
         self.font = 'NotoSansCJKjp-Medium.otf'
-        self.gravity = Magick::NorthWestGravity
+        self.gravity = Magick::NorthGravity
       end
     end
-
 
     @path = "public/dest-#{SecureRandom.base64}.png"
     f.write(@path)
   end
 end
 
-# `open dest.png`
+text = ARGV[0]
+exit unless text
+e = EmojiImage.new(text)
+`open #{e.path}`
