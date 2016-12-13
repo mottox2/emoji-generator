@@ -6,3 +6,7 @@ gem 'sinatra-contrib'
 
 # development
 gem 'pry'
+gem 'pry-doc'
+
+gem 'mechanize'
+gem 'highline'
