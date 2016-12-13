@@ -16,7 +16,7 @@ class EmojiImage
     fontsize =  (64 - padding * 2) / 2
     color = ['#F44336', '#9C27B0', '#3F51B5', '#03A9F4', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#795548'].sample
 
-    text.split('').to_a.each_slice((text.size / 2).round).with_index do |row, index|
+    text.split('').to_a.each_slice((text.size / 2.0).round).with_index do |row, index|
       p index
       row_text = row.join
 
