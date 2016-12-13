@@ -14,6 +14,7 @@ class EmojiImage
 
     padding = 4
     fontsize =  (64 - padding * 2) / 2
+    color = ['#F44336', '#9C27B0', '#3F51B5', '#03A9F4', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#795548'].sample
 
     text.split('').to_a.each_slice((text.size / 2).round).with_index do |row, index|
       p index
@@ -21,7 +22,7 @@ class EmojiImage
 
       d.annotate(f, 0, 0, padding, padding + index * fontsize, row_text) do
         self.pointsize = fontsize
-        self.fill = 'orange'
+        self.fill = color
         self.font = 'NotoSansCJKjp-Medium.otf'
         self.gravity = Magick::NorthGravity
       end
